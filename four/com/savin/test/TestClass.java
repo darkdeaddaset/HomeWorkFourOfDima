@@ -18,6 +18,12 @@ public class TestClass {
         System.out.println("Contains Array: " + containsCollection(array, 50));
         System.out.println("Contains LinkedList: " + containsCollection(linked, 50));
 
+        System.out.println("Add element with index Array: " + addElementIndexList(array, 50, 60));
+        System.out.println("Add element with index Array: " + addElementIndexList(linked, 50, 60));
+
+        System.out.println("Get Array: " + getList(array, 60));
+        System.out.println("Get Array: " + getList(linked, 60));
+
         System.out.println("==============================================================");
     }
 
@@ -26,6 +32,20 @@ public class TestClass {
         for (int i = 0; i < 100; i++){
             collection.add(i);
         }
+        long finish = System.nanoTime() - start;
+        return finish;
+    }
+
+    private static long addElementIndexList(List<Integer> list, int element, int index){
+        long start = System.nanoTime();
+        list.add(element, index);
+        long finish = System.nanoTime() - start;
+        return finish;
+    }
+
+    private static long getList(List<Integer> list, int index){
+        long start = System.nanoTime();
+        list.get(index);
         long finish = System.nanoTime() - start;
         return finish;
     }
